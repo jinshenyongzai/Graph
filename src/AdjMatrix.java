@@ -3,12 +3,14 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+// 空间复杂度O(V^2)
 public class AdjMatrix {
 
     private int V;
     private int E;
     private int[][] adj;
 
+    // O(E)
     public AdjMatrix(String filename){
 
         File file = new File(filename);
@@ -63,12 +65,14 @@ public class AdjMatrix {
         return E;
     }
 
+    // O(1)
     public boolean hasEdge(int v, int w){
         validateVertex(v);
         validateVertex(w);
         return adj[v][w] == 1;
     }
 
+    // O(V)
     public ArrayList<Integer> adj(int v){
 
         validateVertex(v);
@@ -103,8 +107,6 @@ public class AdjMatrix {
         AdjMatrix adjMatrix = new AdjMatrix("g.txt");
 
         System.out.println(adjMatrix);
-        System.out.println(adjMatrix.adj(0));
-        System.out.println(adjMatrix.degree(0));
     }
 
 }
