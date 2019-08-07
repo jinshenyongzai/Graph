@@ -1,15 +1,15 @@
-public class AllPairsPath  {
+public class AllPairsPathBFS {
 
     private Graph G;
-    private SingleSourcePath[] paths;
+    private SingleSourcePathBFS[] paths;
 
-    public AllPairsPath (Graph G){
+    public AllPairsPathBFS(Graph G){
 
         this.G = G;
 
-        paths = new SingleSourcePath[G.V()];
+        paths = new SingleSourcePathBFS[G.V()];
         for (int v = 0; v < G.V(); v++)
-            paths[v] = new SingleSourcePath(G, v);
+            paths[v] = new SingleSourcePathBFS(G, v);
     }
 
     public boolean isConnectedTo(int s, int t){
@@ -26,7 +26,7 @@ public class AllPairsPath  {
 
         Graph g = new Graph("g.txt");
 
-        AllPairsPath  apPath = new AllPairsPath (g);
+        AllPairsPathBFS apPath = new AllPairsPathBFS(g);
         System.out.println("0 -> 1 : " + apPath.paths[0].path(1));
         System.out.println("0 -> 3 : " + apPath.paths[0].path(3));
         System.out.println("0 -> 5 : " + apPath.paths[0].path(5));
