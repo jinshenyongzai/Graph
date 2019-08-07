@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class SingleSourcePath2 {
+public class SingleSourcePathDFS2 {
 
     private Graph G;
     private int s;
 
     private int[] pre;
 
-    public SingleSourcePath2(Graph G, int s){
+    public SingleSourcePathDFS2(Graph G, int s){
 
         G.validateVertex(s);
 
@@ -56,7 +56,7 @@ public class SingleSourcePath2 {
 
         Graph g = new Graph("g.txt");
 
-        SingleSourcePath2 ssPath = new SingleSourcePath2(g, 0);
+        SingleSourcePathDFS2 ssPath = new SingleSourcePathDFS2(g, 0);
         System.out.println("0 -> 0 : " + ssPath.path(0));
         System.out.println("0 -> 1 : " + ssPath.path(1));
         System.out.println("0 -> 2 : " + ssPath.path(2));
