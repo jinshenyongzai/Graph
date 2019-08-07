@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class SingleSourcePath {
+public class SingleSourcePathDFS {
 
     private Graph G;
     private int s;
@@ -10,7 +10,7 @@ public class SingleSourcePath {
     private boolean[] visited;
     private int[] pre;
 
-    public SingleSourcePath(Graph G, int s){
+    public SingleSourcePathDFS(Graph G, int s){
 
         G.validateVertex(s);
 
@@ -59,7 +59,7 @@ public class SingleSourcePath {
 
         Graph g = new Graph("g.txt");
 
-        SingleSourcePath ssPath = new SingleSourcePath(g, 0);
+        SingleSourcePathDFS ssPath = new SingleSourcePathDFS(g, 0);
         System.out.println("0 -> 0 : " + ssPath.path(0));
         System.out.println("0 -> 1 : " + ssPath.path(1));
         System.out.println("0 -> 2 : " + ssPath.path(2));
