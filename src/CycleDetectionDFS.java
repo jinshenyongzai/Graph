@@ -1,10 +1,10 @@
-public class CycleDetection {
+public class CycleDetectionDFS {
 
     private Graph G;
     private boolean[] visited;
     private boolean hasCycle = false;
 
-    public CycleDetection(Graph G){
+    public CycleDetectionDFS(Graph G){
 
         this.G = G;
         visited = new boolean[G.V()];
@@ -37,12 +37,12 @@ public class CycleDetection {
 
         Graph g = new Graph("g.txt");
 
-        CycleDetection cycleDetection = new CycleDetection(g);
-        System.out.println(cycleDetection.hasCycle());
+        CycleDetectionDFS cycleDetectionDFS = new CycleDetectionDFS(g);
+        System.out.println(cycleDetectionDFS.hasCycle());
 
         Graph g2 = new Graph("g2.txt");
 
-        CycleDetection cycleDetection2 = new CycleDetection(g2);
-        System.out.println(cycleDetection2.hasCycle());
+        CycleDetectionDFS cycleDetectionDFS2 = new CycleDetectionDFS(g2);
+        System.out.println(cycleDetectionDFS2.hasCycle());
     }
 }
