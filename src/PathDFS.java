@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Path {
+public class PathDFS {
 
     private Graph G;
     private int s;
@@ -11,7 +11,7 @@ public class Path {
     private boolean[] visited;
     private int[] pre;
 
-    public Path(Graph G, int s, int t){
+    public PathDFS(Graph G, int s, int t){
 
         G.validateVertex(s);
         G.validateVertex(t);
@@ -71,13 +71,13 @@ public class Path {
 
         Graph g = new Graph("g.txt");
 
-        Path path = new Path(g, 0, 6);
-        System.out.println("0 -> 6 : " + path.path());
+        PathDFS pathDFS = new PathDFS(g, 0, 6);
+        System.out.println("0 -> 6 : " + pathDFS.path());
 
-        Path path2 = new Path(g, 0, 1);
-        System.out.println("0 -> 1 : " + path2.path());
+        PathDFS pathDFS2 = new PathDFS(g, 0, 5);
+        System.out.println("0 -> 1 : " + pathDFS2.path());
 
-        Path path3 = new Path(g, 0, 5);
-        System.out.println("0 -> 5 : " + path3.path());
+        PathDFS pathDFS3 = new PathDFS(g, 0, 1);
+        System.out.println("0 -> 5 : " + pathDFS3.path());
     }
 }
