@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class CC {
+public class CCDFS {
 
     private Graph G;
     private int[] visited;
     private int ccount = 0;
 
-    public CC(Graph G){
+    public CCDFS(Graph G){
 
         this.G = G;
         visited = new int[G.V()];
@@ -57,13 +57,13 @@ public class CC {
 
         Graph g = new Graph("g.txt");
 
-        CC cc = new CC(g);
-        System.out.println(cc.count());
+        CCDFS CCDFS = new CCDFS(g);
+        System.out.println(CCDFS.count());
 
-        System.out.println(cc.isConnected(0, 6));
-        System.out.println(cc.isConnected(0, 5));
+        System.out.println(CCDFS.isConnected(0, 6));
+        System.out.println(CCDFS.isConnected(0, 5));
 
-        ArrayList<Integer>[] comp =  cc.components();
+        ArrayList<Integer>[] comp =  CCDFS.components();
         for (int ccid = 0; ccid < comp.length; ccid++){
             System.out.print(ccid + " : ");
             for (int w: comp[ccid])
