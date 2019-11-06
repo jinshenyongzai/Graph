@@ -9,6 +9,7 @@ public class AdjMatrix{
     private int E;
     private int[][] adj;
 
+    // 空间复杂度：O（V^2)
     public AdjMatrix(String filename){
 
         File file = new File(filename);
@@ -23,6 +24,7 @@ public class AdjMatrix{
             E = scanner.nextInt();
             if (E < 0)
                 throw new IllegalArgumentException("E must be non-negative");
+            // 建图时间复杂度：O（E）
             for (int i = 0; i < E; i++){
                 int a = scanner.nextInt();
                 validateVertex(a);
@@ -61,14 +63,14 @@ public class AdjMatrix{
         return E;
     }
 
-    // 判断是否有边
+    // 查看两个节点是否相邻，时间复杂度：O（1）
     public boolean hasEdge(int v, int w){
         validateVertex(v);
         validateVertex(w);
         return adj[v][w] == 1;
     }
 
-    // 返回和顶点v相邻的边
+    // 求一个顶点的相邻节点，时间复杂度：O（V）
     public ArrayList<Integer> adj(int v){
 
         validateVertex(v);
