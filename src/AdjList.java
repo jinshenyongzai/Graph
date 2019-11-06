@@ -9,6 +9,7 @@ public class AdjList{
     private int E;
     private LinkedList<Integer>[] adj;
 
+    // 空间复杂度：O（V + E)
     public AdjList(String filename){
 
         File file = new File(filename);
@@ -25,6 +26,7 @@ public class AdjList{
             E = scanner.nextInt();
             if (E < 0)
                 throw new IllegalArgumentException("E must be non-negative");
+            // 建图时间复杂度：O（E * V）
             for (int i = 0; i < E; i++){
                 int a = scanner.nextInt();
                 validateVertex(a);
@@ -63,14 +65,14 @@ public class AdjList{
         return E;
     }
 
-    // 查看两个节点是否相邻
+    // 查看两个节点是否相邻，时间复杂度：O（degree(v))
     public boolean hasEdge(int v, int w){
         validateVertex(v);
         validateVertex(w);
         return adj[v].contains(w);
     }
 
-    // 求一个顶点的相邻节点
+    // 求一个顶点的相邻节点，时间复杂度：O（degree(v))
     public LinkedList<Integer> adj(int v){
 
         validateVertex(v);
