@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdjMatrix{
@@ -15,12 +16,26 @@ public class AdjMatrix{
         try(Scanner scanner = new Scanner(file)){
 
             V = scanner.nextInt();
+            if (V < 0)
+                throw new IllegalArgumentException("V must be non-negative");
             adj = new int[V][V];
 
             E = scanner.nextInt();
+            if (E < 0)
+                throw new IllegalArgumentException("E must be non-negative");
             for (int i = 0; i < E; i++){
                 int a = scanner.nextInt();
+                validateVertex(a);
                 int b = scanner.nextInt();
+                validateVertex(b);
+
+                // 去除自环边
+                if (a == b)
+                    throw new IllegalArgumentException("Self Loop is Detected!");
+                // 去除平行边
+                if (adj[a][b] == 1)
+                    throw new IllegalArgumentException("Parallel Edges are Detected!");
+
                 adj[a][b] = 1;
                 adj[b][a] = 1;
             }
@@ -28,6 +43,45 @@ public class AdjMatrix{
         catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    // 顶点合法性判定
+    private void validateVertex(int v){
+        if (v < 0 || v >= V)
+            throw new IllegalArgumentException("vertex" + v + "is invalid");
+    }
+
+    // 返回顶点个数
+    public int V(){
+        return V;
+    }
+
+    // 返回边的条数
+    public int E(){
+        return E;
+    }
+
+    // 判断是否有边
+    public boolean hasEdge(int v, int w){
+        validateVertex(v);
+        validateVertex(w);
+        return adj[v][w] == 1;
+    }
+
+    // 返回和顶点v相邻的边
+    public ArrayList<Integer> adj(int v){
+
+        validateVertex(v);
+        ArrayList<Integer> res = new ArrayList<>();
+        for (int i = 0; i < V; i++)
+            if (adj[v][i] == 1)
+                res.add(i);
+        return res;
+    }
+
+    // 求一个顶点的度
+    public int degree(int v){
+        return adj(v).size();
     }
 
     @Override
@@ -47,6 +101,9 @@ public class AdjMatrix{
     public static void main(String[] args){
 
         AdjMatrix adjMatrix = new AdjMatrix("g.txt");
-        System.out.print(adjMatrix);
+
+        System.out.print("邻接矩阵：\n" + adjMatrix);
+        System.out.println("顶点个数：" + adjMatrix.V);
+        System.out.println("边的条数：" + adjMatrix.E);
     }
 }
