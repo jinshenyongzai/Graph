@@ -8,6 +8,7 @@ public class GraphDFS {
     private ArrayList<Integer> pre = new ArrayList<>();
     private ArrayList<Integer> post = new ArrayList<>();
 
+    // 时间复杂度：O（V + E）
     public GraphDFS(Graph G) {
 
         this.G = G;
@@ -39,6 +40,9 @@ public class GraphDFS {
 
     public static void main(String[] args) {
 
+        // 连通分量为1的图
+        // Graph g = new Graph("g2.txt");
+        // 连通分量为2的图
         Graph g = new Graph("g3.txt");
         GraphDFS graphDFS = new GraphDFS(g);
         System.out.println(graphDFS.pre());
