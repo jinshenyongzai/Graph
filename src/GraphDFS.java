@@ -11,7 +11,9 @@ public class GraphDFS {
 
         this.G = G;
         visited = new boolean[G.V()];
-        dfs(0);
+        for (int v = 0; v < G.V(); v++)
+            if (!visited[v])
+                dfs(v);
     }
 
     private void dfs(int v) {
@@ -29,7 +31,7 @@ public class GraphDFS {
 
     public static void main(String[] args) {
 
-        Graph g = new Graph("g2.txt");
+        Graph g = new Graph("g3.txt");
         GraphDFS graphDFS = new GraphDFS(g);
         System.out.println(graphDFS.order());
     }
