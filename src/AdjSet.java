@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.TreeSet;
 import java.util.Scanner;
 
-public class AdjSet{
+public class AdjSet implements GraphInterface{
 
     private int V;
     private int E;
