@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class AdjHashSet{
+public class AdjHashSet implements GraphInterface{
 
     private int V;
     private int E;

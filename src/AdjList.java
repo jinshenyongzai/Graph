@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class AdjList{
+public class AdjList implements GraphInterface{
 
     private int V;
     private int E;

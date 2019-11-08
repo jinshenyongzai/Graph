@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AdjMatrix{
+public class AdjMatrix implements GraphInterface{
 
     private int V;
     private int E;
