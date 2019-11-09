@@ -10,7 +10,7 @@ public class TreeDetectionDFS {
     }
 
     public boolean isTree(){
-        return CCDFS.count() == 1 && !cycleDetectionDFS.hasCycle();
+        return CCDFS.ccount() == 1 && !cycleDetectionDFS.hasCycle();
     }
 
     public static void  main(String[] args){
