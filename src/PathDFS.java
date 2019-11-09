@@ -69,15 +69,15 @@ public class PathDFS {
 
     public static void  main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("g3.txt");
 
         PathDFS pathDFS = new PathDFS(g, 0, 6);
         System.out.println("0 -> 6 : " + pathDFS.path());
 
-        PathDFS pathDFS2 = new PathDFS(g, 0, 5);
+        PathDFS pathDFS2 = new PathDFS(g, 0, 1);
         System.out.println("0 -> 1 : " + pathDFS2.path());
 
-        PathDFS pathDFS3 = new PathDFS(g, 0, 1);
+        PathDFS pathDFS3 = new PathDFS(g, 0, 5);
         System.out.println("0 -> 5 : " + pathDFS3.path());
     }
 }
