@@ -56,7 +56,7 @@ public class BipartitionDetectionDFS {
 
     public static void  main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("g3.txt");
 
         BipartitionDetectionDFS bipartitionDetection = new BipartitionDetectionDFS(g);
         System.out.println(bipartitionDetection.isBipartite());
