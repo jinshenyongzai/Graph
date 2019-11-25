@@ -85,6 +85,15 @@ public class Graph {
         return adj[v].size();
     }
 
+    public void removeEdge(int v, int w){
+
+        validateVertex(v);
+        validateVertex(w);
+
+        adj[v].remove(w);
+        adj[w].remove(v);
+    }
+
     @Override
     public String toString() {
 
