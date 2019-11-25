@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Stack;
+
 public class EulerLoop {
 
     private Graph G;
@@ -16,6 +19,32 @@ public class EulerLoop {
             if (G.degree(v) % 2 == 1)
                 return false;
         return true;
+    }
+
+    public ArrayList<Integer> result(){
+
+        ArrayList<Integer> res = new ArrayList<>();
+        if (!hasEulerLoop())
+            return res;
+
+        Graph g = (Graph)G.clone();
+
+        Stack<Integer> stack = new Stack<>();
+        int curv = 0;
+        stack.push(curv);
+        while (!stack.empty()){
+            if (g.degree(curv) != 0){
+                stack.push(curv);
+                int w = g.adj(curv).iterator().next();
+                g.removeEdge(curv, w);
+                curv = w;
+            }
+            else{
+                res.add(curv);
+                curv = stack.pop();
+            }
+        }
+        return res;
     }
 
     public static void main(String[] args) {
@@ -59,5 +88,15 @@ public class EulerLoop {
         Graph g10 = new Graph("g10.txt");
         EulerLoop eulerLoop10 = new EulerLoop(g10);
         System.out.println(eulerLoop10.hasEulerLoop());
+
+        Graph g11 = new Graph("g11.txt");
+        EulerLoop eulerLoop11 = new EulerLoop(g11);
+        System.out.println(eulerLoop11.hasEulerLoop());
+        System.out.println(eulerLoop11.result());
+
+        Graph g12 = new Graph("g12.txt");
+        EulerLoop eulerLoop12 = new EulerLoop(g12);
+        System.out.println(eulerLoop12.hasEulerLoop());
+        System.out.println(eulerLoop12.result());
     }
 }
