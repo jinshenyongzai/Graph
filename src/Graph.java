@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 // 空间复杂度O(V + E)
-public class Graph {
+public class Graph implements Cloneable{
 
     private int V;
     private int E;
@@ -92,6 +92,25 @@ public class Graph {
 
         adj[v].remove(w);
         adj[w].remove(v);
+    }
+
+    @Override
+    public Object clone(){
+
+        try {
+            Graph cloned = (Graph)super.clone();
+            cloned.adj = new TreeSet[V];
+            for (int v = 0; v < V; v++){
+                cloned.adj[v] = new TreeSet<>();
+                for (int w: adj[v])
+                    cloned.adj[v].add(w);
+            }
+            return cloned;
+        }
+        catch (CloneNotSupportedException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
