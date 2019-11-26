@@ -3,11 +3,11 @@ import java.util.Arrays;
 
 public class WeightedCCDFS {
 
-    private Graph G;
+    private WeightedGraph G;
     private int[] visited;
     private int ccount = 0;
 
-    public WeightedCCDFS(Graph G) {
+    public WeightedCCDFS(WeightedGraph G) {
 
         this.G = G;
         visited = new int[G.V()];
