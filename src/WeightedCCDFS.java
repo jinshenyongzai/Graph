@@ -29,9 +29,9 @@ public class WeightedCCDFS {
     }
 
     public int ccount(){
-        for (int e: visited)
-            System.out.print(e + " ");
-        System.out.println();
+//        for (int e: visited)
+//            System.out.print(e + " ");
+//        System.out.println();
         return ccount;
     }
 
